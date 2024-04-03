@@ -34,7 +34,7 @@ public static WebElement addTocart(String productName)
 	return driver.findElement(By.xpath("//div[contains(text(),'"+productName+"')]/parent::a/../following-sibling::div//button"));
 	}
 
-
+//**Filter the products from low to high price or high to low price,accordingly the products are displayed **//*
 public void filterTheproducts(String filterOption)
 {
 	WebElementWrappers.dropdown(filterDropdown, filterOption);
@@ -66,7 +66,8 @@ public void filterTheproducts(String filterOption)
 	        }
 
 	}
-	//**Add Products to the Cart **//*
+	//**Verify that the user can add  more than1 product to the cart **//*
+    //**Verify  the  valid homepage is displayed by validating the title   “Swag Labs” **//*
 	public  void addItemsTotheCart(String appLogo,String productName1,String productName2 ) throws AWTException, InterruptedException
 	{
 		try {

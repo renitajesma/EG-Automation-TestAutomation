@@ -30,7 +30,7 @@ public class LoginPageobject extends WebDriverManagers {
 	@FindBy(how = How.XPATH, using = "//input[@id='login-button']")
 	WebElement loginBtn;
 
-
+//**Verify that the valid username and password should be able to login to the application successfully.**//
 	public  void navigateToApplication(String url,String userName,String Password) {
 		try {
 			System.out.println(url);
@@ -42,7 +42,7 @@ public class LoginPageobject extends WebDriverManagers {
 			WebElementWrappers.clickElement(driver, loginBtn);
 			log.info("User logged into the application successfully");
 			Thread.sleep(2000);
-			//driver.switchTo().alert().accept();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.info(e.getMessage());	

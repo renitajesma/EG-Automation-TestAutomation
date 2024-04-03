@@ -51,6 +51,8 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 				"Load Class, User Should be able to load all classes for execution, User is  able to load all classes for execution ,Pass");
 
 	}	
+	//**Verify that the valid username and password should be able to login to the application successfully  **//*
+	
 	@Test(dependsOnMethods = { "initializePageFactory" })
 	public void loginToSauceDemo() throws InterruptedException {
 		loginPage.navigateToApplication(
@@ -58,15 +60,15 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 				Xlsx_FileReader.excelreader.getCellData(inputGlobalSheet, "url", rowNumGeneric),
 				Xlsx_FileReader.excelreader.getCellData(inputSheetName, "username", rowNum),
 				Xlsx_FileReader.excelreader.getCellData(inputSheetName, "password", rowNum));
-	
-
 	}
 
-	//** Add items to the cart**//*
-
+	//** Verify that the user can add  more than1 product to the cart **//*
+	//** Verify  the  valid homepage is displayed by validating the title   “Swag Labs”  **//*
+	//**Filter the products from low to high price or high to low price,accordingly the products are displayed  **//*
+	
 	@Test(priority=1)
 	public  void addProductsToCart() throws Exception {
-		//loginPage.openBrowser();
+	
 		try {
 			AddProductsToCartPage.filterTheproducts(Xlsx_FileReader.excelreader.getCellData(inputSheetName, "filterOption", rowNum));
 			AddProductsToCartPage.addItemsTotheCart(
@@ -80,8 +82,10 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 			e.printStackTrace();
 		}
 	}
-
-
+	
+	//** Verify that the user can remove the products from the cart page **//*
+	//**verify that the added products are displayed under the cart page  **//*
+	
 	@Test(priority=2)
 	public  void RemoveSomeProductsfromCartAndCheckout() throws Exception {
 		
@@ -95,6 +99,8 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 			e.printStackTrace();
 		}
 	}
+	
+	//**  Verify Error validation when the input is not entered and clicked on Continue button**//*
 	@Test(priority=3)
 	public  void addcheckoutInformation() throws Exception {
 		
@@ -111,6 +117,8 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 			e.printStackTrace();
 		}
 	}
+	
+	//** Verify that the success message is displayed when the product is ordered successfully **//*
 	@Test(priority=4)
 	public  void verifyOrderConfirmation() throws Exception {
 		

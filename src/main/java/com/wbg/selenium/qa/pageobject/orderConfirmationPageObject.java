@@ -25,7 +25,7 @@ public class orderConfirmationPageObject extends WebDriverManagers{
 	@FindBy(how = How.XPATH, using = "//img[@data-test='pony-express']")
 	static WebElement orderSucess;
 	
-	//**Validate the order confirmation message **//*
+	//**Verify that the success message is displayed when the product is ordered successfully **//*
 	public  void orderConfimation( ) throws AWTException, InterruptedException
 	{
 		try {

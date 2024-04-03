@@ -35,6 +35,7 @@ public class CartPageObject extends WebDriverManagers{
 		return driver.findElement(By.xpath("//div[contains(text(),'"+productName+"')]/parent::a/following-sibling::div//button"));
 		}
 	//**Remove products from cart **//*
+	//***verify that the added products are displayed under the cart page**//*
 	public void removeProductsFromCart(String productName2 ) throws AWTException, InterruptedException
 	{
 		try {
