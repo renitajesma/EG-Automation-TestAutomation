@@ -29,14 +29,13 @@ public class orderConfirmationPageObject extends WebDriverManagers{
 	public  void orderConfimation( ) throws AWTException, InterruptedException
 	{
 		try {
-			
+			WebElementWrappers.customWaitForElementVisible(driver, orderSucess, 4000);
 			boolean orderSucessIndication=orderSucess.isDisplayed();
 			softAssert.assertTrue(orderSucessIndication);
 		}
 		catch (Exception e) {
 			log.info(e.getMessage());
 			e.printStackTrace();
-			WebElementWrappers.Reporter(driver, "Verify that Additionality summary is  added,The Additionality summary should not be added successfully, The Additionality summary is not added successfully,Fail");
 			Assert.assertTrue(false);
 		}
 	

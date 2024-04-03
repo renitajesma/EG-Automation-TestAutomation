@@ -68,6 +68,7 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 	public  void addProductsToCart() throws Exception {
 		//loginPage.openBrowser();
 		try {
+			AddProductsToCartPage.filterTheproducts(Xlsx_FileReader.excelreader.getCellData(inputSheetName, "filterOption", rowNum));
 			AddProductsToCartPage.addItemsTotheCart(
 					Xlsx_FileReader.excelreader.getCellData(inputSheetName, "appLogo", rowNum),
 					Xlsx_FileReader.excelreader.getCellData(inputSheetName, "productName1", rowNum),
@@ -98,6 +99,7 @@ public class SauceDemo_Testcase extends WebDriverManagers {
 	public  void addcheckoutInformation() throws Exception {
 		
 		try {
+			CheckoutPage.verifytheErrorMessage();
 			CheckoutPage.checkOutInformation(
 					Xlsx_FileReader.excelreader.getCellData(inputSheetName, "firstName", rowNum),
 					Xlsx_FileReader.excelreader.getCellData(inputSheetName, "lastName", rowNum),

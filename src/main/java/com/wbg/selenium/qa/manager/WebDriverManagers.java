@@ -263,7 +263,7 @@ public class WebDriverManagers {
 		if (driver.getWindowHandle() != null) {
 			// strInputSheetdata=null;
 			driver.manage().deleteAllCookies();
-//		driver.close();
+driver.close();
 			driver.quit();
 			driverObjMap.clear();
 

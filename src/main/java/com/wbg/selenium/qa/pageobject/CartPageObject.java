@@ -27,7 +27,8 @@ public class CartPageObject extends WebDriverManagers{
 	static WebElement checkout;
 	@FindBy(how = How.XPATH, using = "//input[@id='continue']")
 	static WebElement continueBtn;
-	
+	@FindBy(how = How.XPATH, using = "//a[@data-test='shopping-cart-link']")
+	static WebElement addToCartLink;
 	
 	public static WebElement removeCart(String productName)
 	{
@@ -38,7 +39,10 @@ public class CartPageObject extends WebDriverManagers{
 	{
 		try {
 			Thread.sleep(2000);
-			System.out.println("entered summary");
+			WebElementWrappers.customWaitForElementClickable(driver, addToCartLink, 4000);
+		WebElementWrappers.clickElement(driver, addToCartLink);
+		Thread.sleep(2000);
+		WebElementWrappers.customWaitForElementClickable(driver, removeCart(productName2), 4000);
 			WebElementWrappers.clickElement(driver, removeCart(productName2));
 		}
 		catch (Exception e) {
@@ -51,6 +55,7 @@ public class CartPageObject extends WebDriverManagers{
 		public void continueShopping() throws AWTException, InterruptedException
 		{
 			try {
+				WebElementWrappers.customWaitForElementClickable(driver, continueShoppingLink, 4000);
 				Thread.sleep(2000);
 				WebElementWrappers.clickElement(driver, continueShoppingLink);
 			}
@@ -64,6 +69,7 @@ public class CartPageObject extends WebDriverManagers{
 		public  void selectCheckout() throws AWTException, InterruptedException
 		{
 			try {
+				WebElementWrappers.customWaitForElementClickable(driver, checkout, 4000);
 				Thread.sleep(2000);
 				WebElementWrappers.clickElement(driver, checkout);
 			}
@@ -76,8 +82,8 @@ public class CartPageObject extends WebDriverManagers{
 		public  void selectcontinue() throws AWTException, InterruptedException
 		{
 			try {
-				Thread.sleep(2000);
 				WebElementWrappers.scrollDown(driver);
+				WebElementWrappers.customWaitForElementClickable(driver, continueBtn, 4000);	
 				WebElementWrappers.clickElement(driver, continueBtn);
 			}
 			catch (Exception e) {
